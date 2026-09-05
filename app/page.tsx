@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ArrowDownRight, ArrowUpRight, BarChart3, Bell, Check, ChevronDown, ChevronRight, CircleHelp, CreditCard, ExternalLink, LayoutDashboard, Menu, MessageSquare, MoreHorizontal, QrCode, ScanLine, Settings, ShieldCheck, Sparkles, Store, Sun, Tag, Users, X, Zap } from 'lucide-react'
+import { ArrowDownRight, ArrowUpRight, BarChart3, Bell, Check, ChevronDown, ChevronRight, CircleHelp, CreditCard, ExternalLink, LayoutDashboard, Menu, MessageSquare, MoreHorizontal, QrCode, ScanLine, Settings, ShieldCheck, Sparkles, Store, Sun, Tag, Users, WandSparkles, X, Zap } from 'lucide-react'
 
 const nav = [
   { href: '/dashboard', label: 'Overview', icon: LayoutDashboard },
@@ -11,6 +11,7 @@ const nav = [
   { href: '/dashboard/analytics', label: 'Analytics', icon: BarChart3 },
   { href: '/dashboard/cards', label: 'NFC cards', icon: CreditCard },
   { href: '/dashboard/team', label: 'Team', icon: Users },
+  { href: '/dashboard/ai-agent', label: 'AI agent', icon: WandSparkles },
 ]
 const reviews = [
   { name: 'Maya R.', initials: 'MR', score: 5, text: 'The cardamom latte was incredible. Such a beautiful little space for a slow morning.', time: '12 min ago', source: 'NFC card', color: 'bg-[#f4c7a1]' },
