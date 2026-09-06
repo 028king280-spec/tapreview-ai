@@ -6,16 +6,17 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, Check, LoaderCircle, Mic, Send, Sparkles, Volume2, WifiOff } from 'lucide-react'
 import { AICharacter, Waveform, type AICharacterState } from '@/components/ai-character'
 import { analyzeFeedback, conversationStates, createGreeting, generateFollowUpQuestion, generateResponse, nextConversationState, sleep, voice, type ConversationMessage, type ConversationState } from '@/lib/conversation'
+import { getBusinessByNfcId } from '@/lib/mock-data'
 
 type ReviewPageProps = { params: Promise<{ nfcId: string }> }
 type MicState = 'idle' | 'recording' | 'processing'
 type Business = { name: string; location: string; logo: string; accent: string }
-const businesses: Record<string, Business> = { 'urban-brew-main': { name: 'Urban Brew Coffee', location: 'Downtown · Portland, OR', logo: 'UB', accent: '#dc7251' } }
 const ratings = [{ emoji: '😊', label: 'Excellent', value: 5 }, { emoji: '🙂', label: 'Good', value: 4 }, { emoji: '😐', label: 'Okay', value: 3 }, { emoji: '🙁', label: 'Poor', value: 2 }, { emoji: '😡', label: 'Very Poor', value: 1 }]
 
 export default function ReviewPage({ params }: ReviewPageProps) {
   const { nfcId } = use(params)
-  const business = businesses[nfcId]
+  const record = getBusinessByNfcId(nfcId)
+  const business: Business | undefined = record ? { name: record.name, location: 'Downtown · Portland, OR', logo: record.logo, accent: '#dc7251' } : undefined
   const [intro, setIntro] = useState(true)
   const [rating, setRating] = useState(0)
   const [mode, setMode] = useState<'speak' | 'type'>('speak')

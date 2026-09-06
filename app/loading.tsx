@@ -1,0 +1,1 @@
+export default function Loading() { return <main className="grid min-h-screen place-items-center bg-background text-foreground"><div className="rounded-2xl border border-border bg-card px-6 py-4 text-sm text-muted-foreground">Loading TapReview...</div></main> }
